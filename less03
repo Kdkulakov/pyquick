@@ -1,0 +1,22 @@
+import psutil, os
+
+print('Привет! Как звать?')
+name = input()
+
+print('Ну что ж {}, давай поработаем! \n есть вот такие варианты:'.format(name))
+print('[1] - показать содержимое текущей директории')
+print('[2] - показать список PID процессов')
+
+print('Выбери вариант: ')
+choice = int(input())
+
+if choice == 1:
+    print(os.listdir())
+    print("Вот такой вот списочек! Завершаю работу.")
+elif choice == 2:
+    pids = psutil.pids()
+    for i in pids:
+        print("PID - " + str(i))
+    print("Вот такой вот списочек! Завершаю работу.")
+else:
+    print('Есть только два варианта 1 или 2. Вы ввелич что-то не то!')
